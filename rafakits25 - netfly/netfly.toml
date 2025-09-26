@@ -1,0 +1,34 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_ENV = "production"
+  STRIPE_PUBLISHABLE_KEY = "pk_live_51S7drzQc9Gh0VwbjpxXfzPTD6jF8h2SkeqcAdFFd68XurENMzdbFFU9wFenT3lqibi6ujPtTl59BGZtwGmOyAeOC00jABwBndz"
+
+# Redirects para SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Redirects para API (Netlify Functions)
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Configurações de headers de segurança
+[headers]
+  [headers.["/*"]]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+  [headers.["/.netlify/functions/*"]]
+    Access-Control-Allow-Origin = "*"
+
+# Configurações específicas para funções
+[functions]
+  node_bundler = "esbuild"

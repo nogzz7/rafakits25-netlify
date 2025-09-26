@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Realizada - Rafakits25</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0b0b0b;
+            --surface: #121212;
+            --gold: #ffd700;
+            --text: #f5f5f5;
+            --muted: #aaa;
+            --radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: var(--surface);
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .logo {
+            height: 80px;
+            width: auto;
+        }
+        
+        .success-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+        
+        .success-card {
+            background: var(--surface);
+            padding: 3rem 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .success-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), #e0c200, var(--gold));
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .order-details {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid var(--gold);
+            padding: 1rem;
+            margin: 2rem 0;
+            text-align: left;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+        
+        .order-details h3 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-family: 'Oswald', sans-serif;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            background: var(--gold);
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn:hover {
+            background: #e0c200;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+        
+        .btn-outline:hover {
+            background: var(--gold);
+            color: #000;
+        }
+        
+        .footer {
+            background: var(--surface);
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: #000;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .success-card {
+                padding: 2rem 1rem;
+                margin: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <img src="imagem/3.png" alt="Rafakits25" class="logo">
+        </div>
+    </header>
+
+    <main class="success-container">
+        <div class="success-card">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            
+            <h1>Compra Confirmada!</h1>
+            
+            <p class="subtitle">
+                Obrigado por escolher a Rafakits25! Sua compra foi processada com sucesso 
+                e você já faz parte da nossa comunidade streetwear.
+            </p>
+            
+            <div class="order-details">
+                <h3><i class="fas fa-shipping-fast"></i> O que acontece agora?</h3>
+                <p>• Você receberá um email de confirmação</p>
+                <p>• Seu pedido será preparado com cuidado</p>
+                <p>• Acompanhe o envio pelo email</p>
+            </div>
+            
+            <div class="btn-group">
+                <a href="/" class="btn">
+                    <i class="fas fa-home"></i> Voltar à Loja
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-headset"></i> Ajuda
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://instagram.com/rafakits25" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com/rafakits25" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://tiktok.com/@rafakits25" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+        <p class="copyright">&copy; 2024 Rafakits25. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Efeito de confetti
+        function createConfetti() {
+            const colors = ['#ffd700', '#e0c200', '#ffed4e', '#fff9c4'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+        
+        // Adicionar estilo de animação para o confetti
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                0% {
+                    transform: translateY(-100px) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Criar confetti após carregar a página
+        window.addEventListener('load', () => {
+            setTimeout(createConfetti, 500);
+        });
+        
+        // Verificar status da sessão
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('session_id');
+        
+        if (sessionId) {
+            fetch(`/check-session-status?sessionId=${sessionId}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Status do pagamento:', data);
+                    // Aqui você pode exibir mais detalhes do pedido se quiser
+                })
+                .catch(error => {
+                    console.error('Erro ao verificar sessão:', error);
+                });
+        }
+        // Verificar status da sessão e mostrar método de pagamento
+const urlParams = new URLSearchParams(window.location.search);
+const sessionId = urlParams.get('session_id');
+
+if (sessionId) {
+    fetch(`/check-session-status?sessionId=${sessionId}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log('Status do pagamento:', data);
+            
+            // Mostrar método de pagamento utilizado
+            if (data.payment_method) {
+                const paymentMethodElement = document.createElement('div');
+                paymentMethodElement.className = 'payment-method-info';
+                paymentMethodElement.innerHTML = `
+                    <h3><i class="fas fa-credit-card"></i> Método de Pagamento</h3>
+                    <p>Pagamento realizado via ${getPaymentMethodName(data.payment_method)}</p>
+                `;
+                document.querySelector('.order-details').appendChild(paymentMethodElement);
+            }
+            
+            // Mostrar QR Code PIX se aplicável
+            if (data.pix && data.pix.qr_code) {
+                const pixElement = document.createElement('div');
+                pixElement.className = 'pix-info';
+                pixElement.innerHTML = `
+                    <h3><i class="fas fa-qrcode"></i> PIX Utilizado</h3>
+                    <p>Pagamento PIX processado com sucesso!</p>
+                `;
+                document.querySelector('.order-details').appendChild(pixElement);
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao verificar sessão:', error);
+        });
+}
+
+function getPaymentMethodName(method) {
+    const methods = {
+        'card': 'Cartão de Crédito',
+        'pix': 'PIX',
+        'boleto': 'Boleto Bancário',
+        'link': 'Link do Stripe'
+    };
+    return methods[method] || method;
+}
+    </script>
+</body>
+</html>
